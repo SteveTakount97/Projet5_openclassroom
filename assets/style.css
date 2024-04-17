@@ -120,11 +120,11 @@ header {
 }
 .arrow_left{
 	float: left;
-	margin-right: 60px;
+	margin-right: 400px;
 }
 .arrow_right{
 	float: right;
-	margin-left: 60px;
+	margin-left: 400px;
 }
 /* Code CSS en prévision de l'ajout d'un carousel pour la bannière */
 /* Gestion des fleches du carrousel */

@@ -32,6 +32,7 @@ var dots = document.querySelectorAll(".dot");
 // Nombre total de diapositives
 var totalSlides = slides.length;
 
+var currentSlideIndex = 0 ;// Index de la slide actuelle
 
 // Définir la première diapositive comme sélectionnée
 slides[0].selected = true;
@@ -66,24 +67,33 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
     });
 })
+// Fonction pour afficher la diapositive suivante
+function afficherDiapositiveSuivante() {
+    // Mettre à jour l'index de la diapositive actuelle pour passer à la suivante
+    currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+    
+    // Mettre à jour le contenu du carrousel
+    updateBannerContent();
+}
 
 // Fonction pour mettre à jour le contenu de la balise p dans le conteneur #banner
 function updateBannerContent() {
     var bannerImg = document.querySelector('#banner .banner-img');
     var tagLine = document.querySelector('#banner p');
-	
-      // Récupérer la tagline de la diapositive actuelle
-	  var currentSlide = slides[currentSlideIndex];
-	  var tagLineContent = currentSlide.tagLine;
-  
-	  // Mettre à jour le contenu de la balise p
-	  tagLine.innerHTML = tagLineContent;
-   
+
+
+}
+// Fonction pour mettre à jour le tagline
+function updateTagLine() {
+    var tagLineContent = slides[currentSlideIndex].tagLine;
+    var tagLine = document.querySelector('#banner p');
+
+	 // Mettre à jour le contenu de la balise p
+	 tagLine.innerHTML = tagLineContent;
 }
 
 document.addEventListener('DOMContentLoaded', function() {
     var images = ['./assets/images/slideshow/slide1.jpg', './assets/images/slideshow/slide2.jpg', './assets/images/slideshow/slide3.jpg', './assets/images/slideshow/slide4.png']; // Chemins vers les images des slides
-    var currentSlideIndex = 0; // Index de la slide actuelle
 
     // Fonction pour mettre à jour l'image de la bannière et le tagline
     function updateBannerImage() {
@@ -108,11 +118,11 @@ document.addEventListener('DOMContentLoaded', function() {
 // Écouteur d'événement pour le clic sur la flèche droite
 var arrowRight = document.querySelector('.arrow_right');
 arrowRight.addEventListener('click', function() {
-	currentSlideIndex = (currentSlideIndex + 1) % images.length; // Passe à la prochaine slide en bouclant à la fin
+	currentSlideIndex = (currentSlideIndex + 1) % slides.length; // Passe à la prochaine slide en bouclant à la fin 
 	updateBannerImage();
 	updateDots();
-	updateBannerContent(); // Mettre à jour le contenu du carrousel
-
+    updateBannerContent()
+	updateTagLine();
 });
 
   // Écouteur d'événement pour le clic sur la flèche gauche
@@ -122,8 +132,8 @@ arrowRight.addEventListener('click', function() {
 	  updateBannerImage();
 	  updateDots();
 	  updateBannerContent(); // Mettre à jour le contenu du carrousel
+	  updateTagLine();
 
   });
- // Appel initial pour afficher la première diapositive
-updateBannerContent();
+
 });

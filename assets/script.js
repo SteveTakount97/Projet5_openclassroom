@@ -51,11 +51,11 @@ slides.forEach(function(slide, index) {
 
 
 document.addEventListener("DOMContentLoaded", function() {
-	var arrowLeft = document.querySelector('.arrow_left');
+	var arrowRight = document.querySelector('.arrow_right');
 	// Ajoute un écouteur d'événements pour le clic droit
-	arrowLeft.addEventListener("contextmenu", function(event) {
+	arrowRight.addEventListener("contextmenu", function(event) {
 		event.preventDefault(); // Empêche l'affichage du menu contextuel par défaut
-		alert("Clic droit sur la flèche gauche !");
+		alert("Clic droit sur la flèche droit !");
 	});
     // Ajoute un écouteur d'événements pour le clic de souris gauche sur l'image avec la classe "arrow_left"
     arrowLeft.addEventListener("click", function(event) {
@@ -66,7 +66,10 @@ document.addEventListener("DOMContentLoaded", function() {
 			alert("Clic droit sur la flèche gauche !");
 		}
     });
+
+
 })
+
 // Fonction pour afficher la diapositive suivante
 function afficherDiapositiveSuivante() {
     // Mettre à jour l'index de la diapositive actuelle pour passer à la suivante

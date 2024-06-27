@@ -71,14 +71,9 @@ const arrowRight = document.querySelector('.arrow_right');
 
 // Ajoute un écouteur d'événement pour les clics sur la flèche droite
 arrowRight.addEventListener('click', (event) => {
-    // Vérifie si le bouton gauche de la souris a été cliqué
-    if (event.button === 0) {
-        // Affiche la diapositive suivante
-        afficherDiapositiveSuivante();
-    } else if (event.button === 2) {
-        // Affiche une alerte si le bouton droit de la souris a été cliqué
-        alert("Clic droit sur la flèche droite !");
-    }
+    
+    // Affiche la diapositive suivante
+     afficherDiapositiveSuivante();
 });
 
 // Récupère l'élément HTML avec la classe "arrow_left"
@@ -86,33 +81,10 @@ const arrowLeft = document.querySelector('.arrow_left');
 
 // Ajoute un écouteur d'événement pour les clics sur la flèche gauche
 arrowLeft.addEventListener('click', (event) => {
-    // Vérifie si le bouton gauche de la souris a été cliqué
-    if (event.button === 0) {
-        // Décrémente l'index de la diapositive courante de manière cyclique
-        currentSlideIndex = (currentSlideIndex - 1 + totalSlides) % totalSlides;
-        // Met à jour le contenu de la bannière
-        updateBannerContent();
-        // Met à jour l'état des points
-        updateDots();
-    } else if (event.button === 2) {
-        // Affiche une alerte si le bouton droit de la souris a été cliqué
-        alert("Clic droit sur la flèche gauche !");
-    }
-});
-
-// Ajoute un écouteur d'événement pour l'événement 'DOMContentLoaded'
-// Cela s'assure que le code à l'intérieur s'exécute seulement une fois le DOM complètement chargé
-document.addEventListener('DOMContentLoaded', () => {
-    // Initialise le contenu de la bannière avec la première diapositive
-    updateBannerContent();
+     // Décrémente l'index de la diapositive courante de manière cyclique
+     currentSlideIndex = (currentSlideIndex - 1 + totalSlides) % totalSlides;
+    // Met à jour le contenu de la bannière
+     updateBannerContent();
     // Met à jour l'état des points
     updateDots();
-
-    // Ajoute un écouteur d'événement pour le menu contextuel (clic droit) sur la flèche gauche
-    arrowLeft.addEventListener('contextmenu', (event) => {
-        // Empêche l'affichage du menu contextuel par défaut
-        event.preventDefault();
-        // Affiche une alerte pour le clic droit sur la flèche gauche
-        alert("Clic droit sur la flèche gauche !");
-    });
 });
